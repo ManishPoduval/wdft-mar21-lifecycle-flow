@@ -7,7 +7,7 @@ class Students extends Component {
     // create a new state, 
     // storing all json data in the students state
     state = {
-        students: data
+        students: data,
     }
 
     handleSort = () => {
@@ -36,6 +36,8 @@ class Students extends Component {
         //update the original state after sort is done
         this.setState({
             students: clonedStudent
+        }, () => {
+            
         })
 
     }
@@ -51,6 +53,7 @@ class Students extends Component {
         this.setState({
             students: [elem, ...this.state.students]
         })
+        
 
     }
 
@@ -71,7 +74,26 @@ class Students extends Component {
 
     }
 
+    // THESE ARE FOR CLASS COMPONENTS
+    componentDidMount = () => {
+        // Making API calls and fetching initial data
+        console.log('Student component mounted')
+        // THIS FUNCTION ONLY RUNS ONCE
+    }
+
+    componentDidUpdate = () => {
+          console.log('Student component has been updated')
+          // after a specific state has been updated
+    }
+
+    componentWillUnmount() {
+        console.log('Student component unmounted')
+    }
+
+
     render() {
+
+        console.log('Student Rendered')
         const {students} = this.state
         return (
             <>
